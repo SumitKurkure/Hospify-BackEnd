@@ -34,18 +34,51 @@ public class Patient
 	@Column(name = "age")
 	int age;
 	
+	@Override
+	public String toString() {
+		return "Patient [pid=" + pid + ", pname=" + pname + ", email=" + email + ", password=" + password + ", mobile="
+				+ mobile + ", address=" + address + ", age=" + age + ", bloodgrp=" + bloodgrp + ", gender=" + gender
+				+ ", username=" + username + "]";
+	}
+
 	@Column(name = "bloodgroup")
 	String bloodgrp;
 	
 	@Column(name = "gender")
 	String gender;
 	
-	
+	@Column(name = "pusername")
+	String username;
 	
 	public Patient() 
 	{
 		
 	}
+	
+	public Patient(int pid, String pname, String email, String password, long mobile, String address, int age,
+			String bloodgrp, String gender, String username) 
+	{
+		this.pid = pid;
+		this.pname = pname;
+		this.email = email;
+		this.password = password;
+		this.mobile = mobile;
+		this.address = address;
+		this.age = age;
+		this.bloodgrp = bloodgrp;
+		this.gender = gender;
+		this.username = username;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
 
 	public int getPid() {
 		return pid;
@@ -116,20 +149,6 @@ public class Patient
 	}
 
 	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	public Patient(int pid, String pname, String email, String password, long mobile, String address, int age,
-			String bloodgrp, String gender) {
-		super();
-		this.pid = pid;
-		this.pname = pname;
-		this.email = email;
-		this.password = password;
-		this.mobile = mobile;
-		this.address = address;
-		this.age = age;
-		this.bloodgrp = bloodgrp;
 		this.gender = gender;
 	}
 

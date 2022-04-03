@@ -1,9 +1,12 @@
 package com.example.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.example.pojo.Patient;
 
-public interface PatientDao extends JpaRepository<Patient, Integer>{
-	public void loginDetails();
+@Repository
+public interface PatientDao extends JpaRepository<Patient, Integer>
+{
+	
 }
