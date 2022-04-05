@@ -17,7 +17,7 @@ public class Patient
 	int pid;
 	
 	@Column(name="pname")
-	String pname;
+	String name;
 	
 	@Column(name = "email" )
 	String email;
@@ -26,7 +26,7 @@ public class Patient
 	String password;
 	
 	@Column(name = "mobile")
-	long mobile;
+	long mobno;
 	
 	@Column(name = "address")
 	String address;
@@ -34,15 +34,8 @@ public class Patient
 	@Column(name = "age")
 	int age;
 	
-	@Override
-	public String toString() {
-		return "Patient [pid=" + pid + ", pname=" + pname + ", email=" + email + ", password=" + password + ", mobile="
-				+ mobile + ", address=" + address + ", age=" + age + ", bloodgrp=" + bloodgrp + ", gender=" + gender
-				+ ", username=" + username + "]";
-	}
-
 	@Column(name = "bloodgroup")
-	String bloodgrp;
+	String bloodgroup;
 	
 	@Column(name = "gender")
 	String gender;
@@ -55,30 +48,29 @@ public class Patient
 		
 	}
 	
-	public Patient(int pid, String pname, String email, String password, long mobile, String address, int age,
-			String bloodgrp, String gender, String username) 
-	{
+	
+	@Override
+	public String toString() {
+		return "Patient [pid=" + pid + ", name=" + name + ", email=" + email + ", password=" + password + ", mobno="
+				+ mobno + ", address=" + address + ", age=" + age + ", bloodgroup=" + bloodgroup + ", gender=" + gender
+				+ ", username=" + username + "]";
+	}
+
+
+	public Patient(int pid, String name, String email, String password, long mobno, String address, int age,
+			String bloodgroup, String gender, String username) {
+		super();
 		this.pid = pid;
-		this.pname = pname;
+		this.name = name;
 		this.email = email;
 		this.password = password;
-		this.mobile = mobile;
+		this.mobno = mobno;
 		this.address = address;
 		this.age = age;
-		this.bloodgrp = bloodgrp;
+		this.bloodgroup = bloodgroup;
 		this.gender = gender;
 		this.username = username;
 	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-
 
 	public int getPid() {
 		return pid;
@@ -88,12 +80,12 @@ public class Patient
 		this.pid = pid;
 	}
 
-	public String getPname() {
-		return pname;
+	public String getName() {
+		return name;
 	}
 
-	public void setPname(String pname) {
-		this.pname = pname;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getEmail() {
@@ -112,12 +104,12 @@ public class Patient
 		this.password = password;
 	}
 
-	public long getMobile() {
-		return mobile;
+	public long getMobno() {
+		return mobno;
 	}
 
-	public void setMobile(long mobile) {
-		this.mobile = mobile;
+	public void setMobno(long mobno) {
+		this.mobno = mobno;
 	}
 
 	public String getAddress() {
@@ -136,12 +128,12 @@ public class Patient
 		this.age = age;
 	}
 
-	public String getBloodgrp() {
-		return bloodgrp;
+	public String getBloodgroup() {
+		return bloodgroup;
 	}
 
-	public void setBloodgrp(String bloodgrp) {
-		this.bloodgrp = bloodgrp;
+	public void setBloodgroup(String bloodgroup) {
+		this.bloodgroup = bloodgroup;
 	}
 
 	public String getGender() {
@@ -152,5 +144,14 @@ public class Patient
 		this.gender = gender;
 	}
 
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	
+	
 	
 }

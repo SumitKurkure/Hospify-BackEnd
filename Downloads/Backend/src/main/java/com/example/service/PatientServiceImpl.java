@@ -24,6 +24,24 @@ public class PatientServiceImpl implements PatientService
 	@Override
 	public Patient registerPatient(Patient patient) {
 		return patientDao.save(patient);
+	}
+
+	@Override
+	public Patient getPatient(Patient patient) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Patient updatePatient(Patient patient) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Patient deletePatient(Patient patient) {
+		// TODO Auto-generated method stub
+		return null;
 	} 
 	
 

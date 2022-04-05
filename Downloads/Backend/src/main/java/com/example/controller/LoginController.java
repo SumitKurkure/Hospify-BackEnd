@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.pojo.Doctor;
 import com.example.pojo.Patient;
+import com.example.service.DoctorServiceImpl;
 import com.example.service.PatientServiceImpl;
 
 @CrossOrigin(origins  = "http://localhost:3000")
@@ -25,7 +27,7 @@ public class LoginController
 	@PostMapping("/patient")
 	public String loginAuthentication(@RequestBody Patient patient)
 	{ 
-		System.out.println("Fired login controller");
+		System.out.println("Fired patient login controller");
 		
 		List<Patient> patientList = patientService.findByUsernameAndPassword(patient);
 		
@@ -40,6 +42,25 @@ public class LoginController
 		return "invalid";
 	}
 	
-//	@PostMapping("/doctor")
+	@Autowired
+	private DoctorServiceImpl doctorService;
+	
+	@PostMapping("/doctor")
+	public String loginAuthentication(@RequestBody Doctor doctor)
+	{ 
+		System.out.println("Fired doctor login controller");
+		
+		List<Doctor> doctorList = doctorService.findByUsernameAndPassword(doctor);
+		
+		
+		for(Doctor doctorObj : doctorList)
+		{
+			if(doctorObj.getUsername().equals(doctor.getUsername()) && doctorObj.getPassword().equals(doctor.getPassword()))
+			{
+				return "valid";
+			}
+		}
+		return "invalid";
+	}
 	
 }
