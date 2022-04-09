@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dao.DoctorDao;
-
 import com.example.pojo.Doctor;
 
 
@@ -28,6 +27,11 @@ public class DoctorServiceImpl implements DoctorService {
 	@Override
 	public Doctor registerDoctor(Doctor doctor) {
 		return doctorDao.save(doctor);
+	}
+
+	@Override
+	public List<Doctor> getDoctorDetails() {
+		return doctorDao.findAll();
 	} 
 	
 }

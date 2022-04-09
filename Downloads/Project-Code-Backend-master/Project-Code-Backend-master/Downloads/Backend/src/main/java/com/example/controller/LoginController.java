@@ -71,16 +71,18 @@ public class LoginController
 	public String forgotPassword(@PathVariable String username,Patient patient)
 	{
 		System.out.println("in forgot password controller");
+
+		System.out.println(patient.getUsername());
+		System.out.println(patient.getPassword());
+		
 		List<Patient> patientList = patientService.getPatientDetails();
 		
 		for(Patient patientObj : patientList)
 		{
-			if(patientObj.getUsername().equals(patient.getUsername()));
+			if(patientObj.getUsername().equals(username));
 			{
-				System.out.println(patient.getUsername());
-				System.out.println(patient.getPassword());
 
-				patientObj.setPassword(patient.getPassword());
+				patientObj.setPassword("sumit123");
 				
 				System.out.println(patient.getPassword());
 				System.out.println(patientObj.getUsername());

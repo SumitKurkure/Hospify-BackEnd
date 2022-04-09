@@ -29,7 +29,8 @@ public class PatientServiceImpl implements PatientService
 	@Override
 	public List<Patient> getPatientDetails() {
 		return patientDao.findAll();
-	} 
+	}
+
 	
 
 }

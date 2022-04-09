@@ -17,8 +17,6 @@ import com.example.pojo.Hospital;
 @RequestMapping("/bookappointment")
 public class BookAppointmentController 
 {
-//	@Autowired
-//	private HospitalServiceImpl hospServImpl;
 	
 	@Autowired
 	private HospitalDao hospDao;
@@ -31,39 +29,4 @@ public class BookAppointmentController
 	}
 	
 	
-	
-//	@GetMapping("/hospital/{cityName}")
-//	public List<Hospital> getHospitalByCity(@PathVariable String cityName,Hospital hospital)
-//	{
-//		System.out.println("in hosp controller");
-//		
-////		List<Hospital> hospitalList = hospServImpl.getAllHospital(cityName);
-////		
-////		for(Hospital obj : hospitalList)
-////		{
-////			if(obj.getCity().equals(cityName))
-////			{
-////				return hospitalList;
-////			}
-////		}
-//		return hospitalList;
-//	}
-//	@GetMapping("/showhospital/{cityName}")
-//	public List<Hospital> showHospitalList(@PathVariable String cityName,Hospital hospital)
-//	{
-//		System.out.println("in show hospital controller");
-//				
-//		List<Hospital> hospitalList = hospServImpl.getHospital();
-//		
-//		
-//		for(Hospital obj : hospitalList)
-//		{
-//			if(obj.getCity().equals(cityName))
-//			{
-//			 return hospitalList;
-//			}
-//		}
-//		System.out.println(hospitalList);
-//		return null;
-//	}
 }
