@@ -12,5 +12,5 @@ import com.example.pojo.Hospital;
 @Repository
 public interface HospitalDao extends JpaRepository<Hospital, Integer> {
 	@Query(value = "SELECT * FROM hospital h where h.city= :city" ,nativeQuery = true)
-	public List<Hospital> getAllHospital(@Param("city") String city);
+	public List<Hospital> getAllHospitalByCity(@Param("city") String city);
 }

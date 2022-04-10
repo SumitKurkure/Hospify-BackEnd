@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.dao.DoctorDao;
 import com.example.dao.HospitalDao;
+import com.example.pojo.Doctor;
 import com.example.pojo.Hospital;
 
 @RestController
@@ -24,9 +26,20 @@ public class BookAppointmentController
 	@GetMapping("/showhospital/{cityName}")
 	public List<Hospital> getHospitalByCity(@PathVariable String cityName,Hospital hospital)
 	{
-		System.out.println("in hosp controller");
-		return hospDao.getAllHospital(cityName);
+		System.out.println("in show docs controller");
+		return hospDao.getAllHospitalByCity(cityName);
 	}
+	
+	@Autowired
+	private DoctorDao doctorDao;
+	
+	@GetMapping("/showdoctor/{speciality}")
+	public List<Hospital> getDoctorBySpeciality(@PathVariable String speciality,Doctor doctor)
+	{
+		System.out.println("in hosp controller");
+		return doctorDao.getAllDoctorBySpeciality(speciality);
+	}
+	
 	
 	
 }

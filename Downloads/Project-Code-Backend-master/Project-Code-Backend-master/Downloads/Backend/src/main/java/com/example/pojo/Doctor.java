@@ -26,7 +26,7 @@ public class Doctor
 	String password;
 	
 	@Column(name = "mobile")
-	long mobno;
+	Integer mobno;
 
 	
 	@Column(name = "speciality")
@@ -36,7 +36,7 @@ public class Doctor
 	String availableTime;
 	
 	@Column(name = "fees") 
-	int fees;
+	Integer fees;
 	
 	@Column(name = "experience")
 	String experience;
@@ -69,8 +69,8 @@ public class Doctor
 	}
 
 	
-	public Doctor(int did, String name, String email, String password, long mobNo, String speciality,
-			String availableTime, int fees, String experience, String city, String gender, String hospAdd,
+	public Doctor(int did, String name, String email, String password, Integer mobNo, String speciality,
+			String availableTime, Integer fees, String experience, String city, String gender, String hospAdd,
 			String username, String clinicVisit, String degree) {
 		super();
 		this.did = did;
@@ -156,7 +156,7 @@ public class Doctor
 
 
 
-	public void setMobno(long mobno) {
+	public void setMobno(Integer mobno) {
 		this.mobno = mobno;
 	}
 

@@ -10,4 +10,7 @@ public interface PatientService
 	public Patient registerPatient(Patient patient);
 	public List<Patient> getPatientDetails();
 	
+	
+	public String updateProfilePatient(Patient patient);
+	
 }

@@ -7,6 +7,6 @@ import com.example.pojo.Patient;
 
 @Repository
 public interface PatientDao extends JpaRepository<Patient, Integer>
-{
+{	
 	
 }

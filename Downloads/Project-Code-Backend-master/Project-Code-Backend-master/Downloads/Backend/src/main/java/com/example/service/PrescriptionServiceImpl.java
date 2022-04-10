@@ -3,12 +3,13 @@ package com.example.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.dao.PrescriptionDao;
 import com.example.pojo.Prescription;
 
 
-
+@Service
 public class PrescriptionServiceImpl implements PrescriptionService {
 
 	@Autowired
@@ -21,7 +22,6 @@ public class PrescriptionServiceImpl implements PrescriptionService {
 
 	@Override
 	public Prescription setPrescription(Prescription prescription) {
-		// TODO Auto-generated method stub
 		return prescriptionDao.save(prescription);
 	}
 

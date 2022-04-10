@@ -31,6 +31,13 @@ public class PatientServiceImpl implements PatientService
 		return patientDao.findAll();
 	}
 
+	@Override
+	public String updateProfilePatient(Patient patient)
+	{
+		 patientDao.save(patient);
+		 return "updated";
+	}
+
 	
 
 }

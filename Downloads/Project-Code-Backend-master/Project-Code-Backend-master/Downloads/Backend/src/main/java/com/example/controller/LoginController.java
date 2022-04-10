@@ -33,10 +33,14 @@ public class LoginController
 		
 		List<Patient> patientList = patientService.findByUsernameAndPassword(patient);
 		
+//		BCryptPasswordEncoder encoder  = new BCryptPasswordEncoder();
+//		String pass = encoder.encode(patient.getPassword());
 		
 		for(Patient patientObj : patientList)
 		{
-			if(patientObj.getUsername().equals(patient.getUsername()) && patientObj.getPassword().equals(patient.getPassword()))
+//			encoder.matches(pass,patientObj.getPassword());
+
+			if(patientObj.getUsername().equals(patient.getUsername()) && patientObj.getPassword().equals(patient.getPassword()));
 			{
 				return "valid";
 			}
@@ -64,11 +68,12 @@ public class LoginController
 		}
 		return "invalid";
 	}
+	
 	@Autowired
 	private PatientDao patientDao;
 	
 	@PostMapping("/patient/forgotpassword/{username}")
-	public String forgotPassword(@PathVariable String username,Patient patient)
+	public String forgotPassword(@PathVariable String username,@RequestBody Patient patient)
 	{
 		System.out.println("in forgot password controller");
 
@@ -82,7 +87,7 @@ public class LoginController
 			if(patientObj.getUsername().equals(username));
 			{
 
-				patientObj.setPassword("sumit123");
+				patientObj.setPassword(patient.getPassword());
 				
 				System.out.println(patient.getPassword());
 				System.out.println(patientObj.getUsername());
@@ -94,5 +99,7 @@ public class LoginController
 		
 		return "not chaged";
 	}
+
+	
 	
 }

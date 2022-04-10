@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,18 +32,19 @@ public class DoctorDashboardController
 	private PrescriptionServiceImpl prescriptionServiceImpl;
 	
 	@PostMapping("/doctor/sendprescription/{username}")
-	public String sendPrescription( @PathVariable String username ,Prescription prescription)
+	public String sendPrescription( @PathVariable String username ,@RequestBody Prescription prescription)
 	{
+		System.out.println("firec send prescription");
+		
 		List<Doctor> doctorList = doctorService.getDoctorDetails();
 		List<Patient> patientList = patientServiceImpl.getPatientDetails();
-		
-		String doctorUsername = username;
-		String patientUsername = prescription.getPatientUsername();
 		
 		
 		for(Doctor doctorObj : doctorList)
 		{
-			if(doctorObj.getUsername().equals(doctorUsername))
+			
+			System.out.println(doctorObj.getUsername());
+			if(doctorObj.getUsername() == username)
 			{
 				prescription.setDid(doctorObj.getDid());
 			}
@@ -50,10 +52,9 @@ public class DoctorDashboardController
 		
 		for(Patient patientObj : patientList)
 		{
-			if(patientObj.getUsername().equals(patientUsername))
+			if(patientObj.getUsername().equals(prescription.getPatientUsername()))
 			{
 				prescription.setPid(patientObj.getPid());
-				prescription.setPatientUsername(patientUsername);
 			}
 		}
 		

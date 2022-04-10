@@ -13,21 +13,19 @@ public class Prescription {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name ="DID")
+	@Column(name ="presid")
+	int prescriptionId;
+	
+	@Column(name ="did")
 	int did;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name ="pid")
 	int pid;
-	
-	@Column(name ="medicalname")
-	String medicalName;
 	
 	@Column(name ="dose_per_day")
 	int dose_per_day;
 	
-	@Column(name ="days")
+	@Column(name ="daystovisit")
 	int visit_after_days;
 	
 
@@ -36,6 +34,36 @@ public class Prescription {
 	
 	@Column(name="patientusername")
 	String patientUsername;
+	
+	@Column(name = "medicinefirst")
+	String medicineFirst;
+
+	public int getPrescriptionId() {
+		return prescriptionId;
+	}
+
+	public void setPrescriptionId(int prescriptionId) {
+		this.prescriptionId = prescriptionId;
+	}
+
+	public String getMedicineFirst() {
+		return medicineFirst;
+	}
+
+	public void setMedicineFirst(String medicineFirst) {
+		this.medicineFirst = medicineFirst;
+	}
+
+	public String getMedicineSecond() {
+		return medicineSecond;
+	}
+
+	public void setMedicineSecond(String medicineSecond) {
+		this.medicineSecond = medicineSecond;
+	}
+
+	@Column(name = "medicinesecond")
+	String medicineSecond;
 
 	public String getPatientUsername() {
 		return patientUsername;
@@ -69,13 +97,6 @@ public class Prescription {
 		this.visit_after_days = visit_after_days;
 	}
 	
-	public String getMedicalName() {
-		return medicalName;
-	}
-
-	public void setMedicalName(String medicalName) {
-		this.medicalName = medicalName;
-	}
 
 	public int getDose_per_day() {
 		return dose_per_day;
@@ -94,23 +115,26 @@ public class Prescription {
 		this.labTestName = labTestName;
 	}
 
-	public Prescription(int did, int pid, String medicalName, int dose_per_day, int visit_after_days, String labTestName,
-			String patientUsername) {
+	public Prescription(int prescriptionId, int did, int pid, int dose_per_day, int visit_after_days,
+			String labTestName, String patientUsername, String medicineFirst, String medicineSecond) {
 		super();
+		this.prescriptionId = prescriptionId;
 		this.did = did;
 		this.pid = pid;
-		this.medicalName = medicalName;
 		this.dose_per_day = dose_per_day;
 		this.visit_after_days = visit_after_days;
 		this.labTestName = labTestName;
 		this.patientUsername = patientUsername;
+		this.medicineFirst = medicineFirst;
+		this.medicineSecond = medicineSecond;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Prescription [did=" + did + ", pid=" + pid + ", medicalName=" + medicalName + ", dose_per_day="
-				+ dose_per_day + ", visit_after_days=" + visit_after_days + ", labTestName=" + labTestName + ", patientUsername="
-				+ patientUsername + "]";
+		return "Prescription [prescriptionId=" + prescriptionId + ", did=" + did + ", pid=" + pid + ", dose_per_day="
+				+ dose_per_day + ", visit_after_days=" + visit_after_days + ", labTestName=" + labTestName
+				+ ", patientUsername=" + patientUsername + ", medicineFirst=" + medicineFirst + ", medicineSecond="
+				+ medicineSecond + "]";
 	}
 
 	public Prescription()
