@@ -1,7 +1,6 @@
 package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,9 +36,9 @@ public class RegisterController
 	public String registerPatient(@RequestBody Patient patient)
 	{
 		patientService.registerPatient(patient);
-		BCryptPasswordEncoder encoder  = new BCryptPasswordEncoder();
-		String pass = encoder.encode(patient.getPassword());
-		patient.setPassword(pass);
+//		BCryptPasswordEncoder encoder  = new BCryptPasswordEncoder();
+//		String pass = encoder.encode(patient.getPassword());
+//		patient.setPassword(pass);
 		patientDao.save(patient);
 		return "success";
 		
@@ -49,10 +48,10 @@ public class RegisterController
 	public String registerDoctor(@RequestBody Doctor doctor)
 	{
 		doctorService.registerDoctor(doctor);
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		String pass = encoder.encode(doctor.getPassword());
-		doctor.setPassword(pass);
-		doctorDao.save(doctor);
+//		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//		String pass = encoder.encode(doctor.getPassword());
+//		doctor.setPassword(pass);
+//		doctorDao.save(doctor);
 		return "success";
 	}
 }

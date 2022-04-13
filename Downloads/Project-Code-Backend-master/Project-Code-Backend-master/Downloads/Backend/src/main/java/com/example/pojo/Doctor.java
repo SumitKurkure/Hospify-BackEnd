@@ -58,39 +58,58 @@ public class Doctor
 	
 	@Column(name="degree")
 	String degree;
+	
+	@Column(name = "hid")
+	int hid;
+	
+	public int getHid() {
+		return hid;
+	}
 
+
+	public void setHid(int hid) {
+		this.hid = hid;
+	}
+
+
+	public void setFees(Integer fees) {
+		this.fees = fees;
+	}
+
+
+	
 	
 	@Override
 	public String toString() {
-		return "Doctor [did=" + did + ", name=" + name + ", email=" + email + ", password=" + password + ", mobNo="
+		return "Doctor [did=" + did + ", name=" + name + ", email=" + email + ", password=" + password + ", mobno="
 				+ mobno + ", speciality=" + speciality + ", availableTime=" + availableTime + ", fees=" + fees
-				+ ", experience=" + experience + ", city=" + city + ", gender=" + gender + ", hospAdd=" + hospadd
-				+ ", username=" + username + ", clinicVisit=" + clinicVisit + ", Degree=" + degree + "]";
+				+ ", experience=" + experience + ", city=" + city + ", gender=" + gender + ", hospadd=" + hospadd
+				+ ", username=" + username + ", clinicVisit=" + clinicVisit + ", degree=" + degree + ", hid=" + hid
+				+ "]";
 	}
 
-	
-	public Doctor(int did, String name, String email, String password, Integer mobNo, String speciality,
-			String availableTime, Integer fees, String experience, String city, String gender, String hospAdd,
-			String username, String clinicVisit, String degree) {
+
+	public Doctor(int did, String name, String email, String password, Integer mobno, String speciality,
+			String availableTime, Integer fees, String experience, String city, String gender, String hospadd,
+			String username, String clinicVisit, String degree, int hid) {
 		super();
 		this.did = did;
 		this.name = name;
 		this.email = email;
 		this.password = password;
-		this.mobno = mobNo;
+		this.mobno = mobno;
 		this.speciality = speciality;
 		this.availableTime = availableTime;
 		this.fees = fees;
 		this.experience = experience;
 		this.city = city;
 		this.gender = gender;
-		this.hospadd = hospAdd;
+		this.hospadd = hospadd;
 		this.username = username;
 		this.clinicVisit = clinicVisit;
 		this.degree = degree;
+		this.hid = hid;
 	}
-
-
 
 
 	public int getDid() {

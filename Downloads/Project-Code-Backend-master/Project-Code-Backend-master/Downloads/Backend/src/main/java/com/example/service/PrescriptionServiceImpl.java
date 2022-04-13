@@ -16,8 +16,9 @@ public class PrescriptionServiceImpl implements PrescriptionService {
 	private PrescriptionDao prescriptionDao;
 
 	@Override
-	public List<Prescription> getPrescription(Prescription prescription) {
-		return prescriptionDao.findAll();
+	public List<Prescription> getPrescription(String username)
+	{
+		return prescriptionDao.getPrescriptionDetailsByUsername(username);
 	}
 
 	@Override

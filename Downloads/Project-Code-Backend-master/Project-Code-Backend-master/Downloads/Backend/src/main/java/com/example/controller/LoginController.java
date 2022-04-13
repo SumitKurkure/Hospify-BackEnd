@@ -26,21 +26,37 @@ public class LoginController
 	private PatientServiceImpl patientService;
 	
 	
+//	@PostMapping("/patient")
+//	public String loginAuthentication(@RequestBody Patient patient)
+//	{ 
+//		System.out.println("Fired patient login controller");
+//		
+//		List<Patient> patientList = patientService.findByUsernameAndPassword(patient);
+//		
+////		BCryptPasswordEncoder encoder  = new BCryptPasswordEncoder();
+////		String pass = encoder.encode(patient.getPassword());
+//		
+//		for(Patient patientObj : patientList)
+//		{
+//			
+//			if(patientObj.getUsername().equals(patient.getUsername()) && patientObj.getPassword().equals(patient.getPassword()));
+//			{
+//				return "valid";
+//			}
+//		}
+//		return "invalid";
+//	}
+	
 	@PostMapping("/patient")
 	public String loginAuthentication(@RequestBody Patient patient)
 	{ 
-		System.out.println("Fired patient login controller");
+		System.out.println("Fired doctor login controller");
 		
 		List<Patient> patientList = patientService.findByUsernameAndPassword(patient);
-		
-//		BCryptPasswordEncoder encoder  = new BCryptPasswordEncoder();
-//		String pass = encoder.encode(patient.getPassword());
-		
+	
 		for(Patient patientObj : patientList)
 		{
-//			encoder.matches(pass,patientObj.getPassword());
-
-			if(patientObj.getUsername().equals(patient.getUsername()) && patientObj.getPassword().equals(patient.getPassword()));
+			if(patientObj.getUsername().equals(patient.getUsername()) && patientObj.getPassword().equals(patient.getPassword()))
 			{
 				return "valid";
 			}
@@ -57,8 +73,7 @@ public class LoginController
 		System.out.println("Fired doctor login controller");
 		
 		List<Doctor> doctorList = doctorService.findByUsernameAndPassword(doctor);
-		
-		
+	
 		for(Doctor doctorObj : doctorList)
 		{
 			if(doctorObj.getUsername().equals(doctor.getUsername()) && doctorObj.getPassword().equals(doctor.getPassword()))
